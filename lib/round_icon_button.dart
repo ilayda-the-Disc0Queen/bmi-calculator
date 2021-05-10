@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'constants.dart';
 
 class RoundIconButton extends StatelessWidget {
-  RoundIconButton({this.icon});
+  RoundIconButton({@required this.icon, @required this.onPress});
 
   final IconData icon;
+  final Function onPress;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      child: Icon(icon),
-      onPressed: () {
-        print('Pressed');
-      },
+      onPressed: onPress,
+      child: Icon(
+        icon,
+        color: Colors.white,
+      ),
       style: TextButton.styleFrom(
-        primary: Colors.white,
+        primary: kBottomContainerColour,
+        animationDuration: Duration(microseconds: 1),
         backgroundColor: kRoundButtonColour,
+        shape: CircleBorder(side: BorderSide.none),
         minimumSize: Size.square(60.0),
-        shape: CircleBorder(
-          side: BorderSide.none,
-        ),
       ),
     );
   }

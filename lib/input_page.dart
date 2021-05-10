@@ -21,6 +21,7 @@ class _InputPageState extends State<InputPage> {
   GenderType selectedGender;
   int sliderValue = 180;
   int weight = 60;
+  int age = 25;
 
   @override
   Widget build(BuildContext context) {
@@ -130,19 +131,45 @@ class _InputPageState extends State<InputPage> {
                           'WEIGHT',
                           style: kIconCardTextStyle,
                         ),
-                        Text(
-                          weight.toString(),
-                          style: kIconCardNumberTextStyle,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                            Text(
+                              weight.toString(),
+                              style: kIconCardNumberTextStyle,
+                            ),
+                            Text(
+                              'KG',
+                              style: kIconCardTextStyle,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10.0,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             RoundIconButton(
                               icon: FontAwesomeIcons.plus,
+                              onPress: () {
+                                setState(() {
+                                  weight = weight + 1;
+                                  print(weight);
+                                });
+                              },
                             ),
                             SizedBox(width: 10.0),
                             RoundIconButton(
                               icon: FontAwesomeIcons.minus,
+                              onPress: () {
+                                setState(() {
+                                  weight = weight - 1;
+                                  print(weight);
+                                });
+                              },
                             )
                           ],
                         ),
@@ -152,8 +179,55 @@ class _InputPageState extends State<InputPage> {
                   )),
                   Expanded(
                       child: ReusableCard(
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'AGE',
+                          style: kIconCardTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                            Text(
+                              age.toString(),
+                              style: kIconCardNumberTextStyle,
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPress: () {
+                                setState(() {
+                                  age++;
+                                  print(weight);
+                                });
+                              },
+                            ),
+                            SizedBox(width: 10.0),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPress: () {
+                                setState(() {
+                                  age--;
+                                  print(weight);
+                                });
+                              },
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                     colour: kReusableCardBgColour,
-                  ))
+                  )),
                 ],
               ),
             ),
