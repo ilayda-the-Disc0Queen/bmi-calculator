@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-
-const iconCardTextStyle = TextStyle(
-  fontSize: 18.0,
-  color: Color(0xFF8D8E98),
-);
+import 'constants.dart';
 
 class IconCardContent extends StatelessWidget {
   IconCardContent({this.gender, this.icon});
@@ -25,7 +21,7 @@ class IconCardContent extends StatelessWidget {
         ),
         Text(
           gender,
-          style: iconCardTextStyle,
+          style: kIconCardTextStyle,
         )
       ],
     );
