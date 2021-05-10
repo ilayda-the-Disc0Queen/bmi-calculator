@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_card_content.dart';
 import 'reusable_card.dart';
 import 'constants.dart';
+import 'round_icon_button.dart';
 
 enum GenderType {
   female,
@@ -18,6 +19,9 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   GenderType selectedGender;
+  int sliderValue = 180;
+  int weight = 60;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,9 +79,11 @@ class _InputPageState extends State<InputPage> {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    textBaseline: TextBaseline.alphabetic,
                     children: [
                       Text(
-                        '180',
+                        sliderValue.toString(),
                         style: kIconCardNumberTextStyle,
                       ),
                       Text(
@@ -85,6 +91,29 @@ class _InputPageState extends State<InputPage> {
                         style: kIconCardTextStyle,
                       ),
                     ],
+                  ),
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      activeTrackColor: Colors.white,
+                      inactiveTrackColor: kLabelTextColour,
+                      thumbShape:
+                          RoundSliderThumbShape(enabledThumbRadius: 17.0),
+                      thumbColor: kBottomContainerColour,
+                      overlayShape:
+                          RoundSliderOverlayShape(overlayRadius: 35.0),
+                      overlayColor: kTransparentBottomContainerColour,
+                      trackHeight: 1.5,
+                    ),
+                    child: Slider(
+                      value: sliderValue.toDouble(),
+                      min: 120,
+                      max: 220,
+                      onChanged: (double newValue) {
+                        setState(() {
+                          sliderValue = newValue.round();
+                        });
+                      },
+                    ),
                   )
                 ],
               ),
@@ -94,6 +123,31 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   Expanded(
                       child: ReusableCard(
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'WEIGHT',
+                          style: kIconCardTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kIconCardNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                            ),
+                            SizedBox(width: 10.0),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                     colour: kReusableCardBgColour,
                   )),
                   Expanded(
