@@ -21,3 +21,21 @@ const kIconCardNumberTextStyle = TextStyle(
 );
 
 const kSliderStartingValue = 180;
+
+const kResultTextStyle = TextStyle(
+  color: Color(0xFF24D876),
+  fontWeight: FontWeight.bold,
+  fontSize: 25.0,
+);
+
+const kBMINumberStyle = TextStyle(
+  color: Colors.white,
+  fontWeight: FontWeight.w900,
+  fontSize: 100.0,
+);
+
+const kBMITextStyle = TextStyle(
+  color: kLabelTextColour,
+  fontWeight: FontWeight.w400,
+  fontSize: 25.0,
+);
