@@ -231,11 +231,26 @@ class _InputPageState extends State<InputPage> {
                 ],
               ),
             ),
-            Container(
-              width: double.infinity,
-              color: kBottomContainerColour,
-              height: kBottomContainerHeight,
-              margin: EdgeInsets.only(top: 10.0),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/results');
+              },
+              child: Container(
+                child: Center(
+                    child: Text(
+                  'CALCULATE',
+                  style: TextStyle(
+                    fontSize: 25.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                  ),
+                )),
+                width: double.infinity,
+                color: kBottomContainerColour,
+                padding: EdgeInsets.only(bottom: 20.0),
+                height: kBottomContainerHeight,
+                margin: EdgeInsets.only(top: 10.0),
+              ),
             ),
           ],
         ),
