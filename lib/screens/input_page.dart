@@ -30,7 +30,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
+        title: Center(child: Text('BMI CALCULATOR')),
       ),
       body: Center(
         child: Column(
@@ -150,7 +150,7 @@ class _InputPageState extends State<InputPage> {
                           ],
                         ),
                         SizedBox(
-                          height: 10.0,
+                          height: 5.0,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -164,7 +164,7 @@ class _InputPageState extends State<InputPage> {
                                 });
                               },
                             ),
-                            SizedBox(width: 10.0),
+                            SizedBox(width: 5.0),
                             RoundIconButton(
                               icon: FontAwesomeIcons.minus,
                               onPress: () {
